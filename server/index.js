@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //.env path
 const path = require("path");
@@ -14,6 +15,7 @@ connectDB();
 
 // cors
 const cors = require("cors");
+const helmet = require("helmet");
 const whitelist = [
   "http://192.168.0.123:5173",
   "http://192.168.0.123:5173/",
@@ -38,8 +40,15 @@ const corsOptions = {
   allowedHeaders: "*",
   "Access-Control-Request-Headers": "*",
 };
-app.use(cors(corsOptions));
-// app.use(cors());
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: false,
+//     frameguard: true,
+//   })
+// );
+// app.use(cors(corsOptions));
+app.use(helmet());
+app.use(cors());
 
 app.get("/status", (req, res) => {
   res.json({ status: "Alive" });

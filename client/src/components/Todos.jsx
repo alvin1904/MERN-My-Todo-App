@@ -52,7 +52,7 @@ const Todos = ({ todo }) => {
   return (
     <div className="todos">
       {todos.map(({ _id, text, complete }) => {
-        const delay = 1000 / todos.length;
+        const delay = 600 / todos.length;
         delayforEach += delay;
         return (
           <div
