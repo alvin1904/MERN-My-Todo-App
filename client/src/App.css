@@ -1,4 +1,4 @@
-:root {
+:root, * {
   font-family: "Poppins", sans-serif;
 }
 
@@ -9,7 +9,7 @@
   background-color: white;
   border-radius: 0.5rem;
   overflow-x: hidden;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
@@ -103,6 +103,7 @@
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
+
 }
 .inputDialog {
   top: 125%;
@@ -116,7 +117,7 @@
   background-color: transparent;
   border: none;
 }
-.inputButton{
+.inputButton {
   background-color: transparent;
   border: none;
   display: grid;
@@ -138,7 +139,7 @@
     width: 19rem;
     overflow: hide;
   }
-  .inputBox{
+  .inputBox {
     width: 16rem;
   }
 }

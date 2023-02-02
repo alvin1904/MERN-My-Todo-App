@@ -4,10 +4,6 @@ import { BsCircle, BsCheck2Circle, BsTrash } from "react-icons/bs";
 import { getTodos } from "../api/index";
 
 const Todos = ({ todo }) => {
-  const message = "Read an article";
-  const message2 =
-    "Comeplete the assignemnt giver on classroom files and read the chapter through the enthusiasm during given end sem exams with honesty";
-
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
@@ -18,7 +14,7 @@ const Todos = ({ todo }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [todo]);
 
   return (
     <div className="todos">

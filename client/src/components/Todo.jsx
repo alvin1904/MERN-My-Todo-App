@@ -18,7 +18,7 @@ const Todo = () => {
       date: date.getDate().toString(),
       month: months[date.getMonth()],
       year: date.getFullYear().toString(),
-      weekday: weekdays[date.getDay()],
+      weekday: weekdays[date.getDay()].toUpperCase(),
     };
     setDate(dateData);
   }, []);
@@ -33,7 +33,8 @@ const Todo = () => {
       };
       addTodo(data)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
+          setTodo("");
         })
         .catch((err) => {
           console.log(err);
@@ -63,7 +64,7 @@ const Todo = () => {
           </div>
           <div className="day">{date.weekday}</div>
         </header>
-        <Todos />
+        <Todos todo={todo} />
       </div>
       <form
         className={`inputDialog${view ? "active" : ""}`}
@@ -73,7 +74,7 @@ const Todo = () => {
           setView(false);
         }}
       >
-        <input className="inputBox" name="inputBox" autoComplete="off"></input>
+        <input className="inputBox" name="inputBox" autoComplete="off" defaultValue={""}></input>
         <button type="submit" className="inputButton">
           <AiOutlineSend size={30} />
         </button>
