@@ -15,9 +15,8 @@ connectDB();
 // cors
 const cors = require("cors");
 const whitelist = [
-  "http://127.0.0.1:3000",
-  "http://localhost:3000",
-  "http://localhost:3000/",
+  "http://192.168.0.123:5173",
+  "http://192.168.0.123:5173/",
   "http://localhost:5173",
   "http://localhost:5173/",
 ];
@@ -57,7 +56,6 @@ app.post("/todo/new", (req, res) => {
     const todo = new Todo({
       text: req.body.text,
     });
-    console.log("from server");
     todo.save();
     res.status(200).json(todo);
   } catch (err) {

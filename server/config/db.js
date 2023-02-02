@@ -12,5 +12,8 @@ const connectDB = () => {
     console.log(err);
   }
   );
+
+  mongoose.set('strictQuery', false);
+
 }
 module.exports = connectDB;
