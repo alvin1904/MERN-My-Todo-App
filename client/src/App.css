@@ -1,0 +1,144 @@
+:root {
+  font-family: "Poppins", sans-serif;
+}
+
+.Screen {
+  height: 41rem;
+  width: 24rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow-x: hidden;
+  /* overflow-y: scroll; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.root {
+  overflow: hidden;
+}
+.Website {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-content: center;
+  background-image: url("./assets/bg.svg");
+  background-repeat: repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+.dates,
+.header {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.5rem;
+  /* font-size: 100%; */
+}
+.monthyear {
+  display: grid;
+  grid-auto-flow: row;
+}
+.date {
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+.month {
+  font-weight: 500;
+}
+.header {
+  align-items: center;
+  justify-content: space-between;
+}
+.todos {
+  margin: 2.5rem 0rem;
+  max-width: 100%;
+  max-height: 100%;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1.5rem;
+  padding: 0rem 0.5rem;
+}
+.todo {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.message {
+  word-wrap: break-word;
+  line-height: 1.3rem;
+}
+.tickbox {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.5rem;
+}
+.red {
+  color: red;
+  cursor: pointer;
+}
+.green {
+  color: #76b041;
+  cursor: pointer;
+}
+.black {
+  color: black;
+  cursor: pointer;
+}
+.addTodo {
+  cursor: pointer;
+}
+.inputDialog,
+.inputDialogactive {
+  position: absolute;
+  place-self: center;
+  background-color: #a6fbff;
+  border-radius: 0.5rem;
+  padding: 0rem 0.5rem;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+}
+.inputDialog {
+  top: 125%;
+  display: none;
+}
+.inputBox {
+  height: 2rem;
+  width: 20rem;
+  padding: 0.5rem;
+  font-size: 1.15rem;
+  background-color: transparent;
+  border: none;
+}
+.inputButton{
+  background-color: transparent;
+  border: none;
+  display: grid;
+  align-items: center;
+  cursor: pointer;
+}
+.inputDialogactive {
+  display: grid;
+  top: 90%;
+}
+@media (max-width: 70em) {
+  .inputDialogactive {
+    top: 90%;
+  }
+}
+
+@media (max-width: 50em) {
+  .Screen {
+    width: 19rem;
+    overflow: hide;
+  }
+  .inputBox{
+    width: 16rem;
+  }
+}

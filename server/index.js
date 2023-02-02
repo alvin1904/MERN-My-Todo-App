@@ -55,6 +55,7 @@ app.post("/todo/new", (req, res) => {
     const todo = new Todo({
       text: req.body.text,
     });
+    console.log("from server");
     todo.save();
     res.status(200).json(todo);
   } catch (err) {
