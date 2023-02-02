@@ -23,16 +23,12 @@ const Todos = ({ todo }) => {
 
   const handleDelete = (id) => {
     if (id) {
-      setDeletes(id);
       deleteTodo(id)
         .then((res) => {
           // console.log(res);
-          const timeout =
-            (() => {
-              setUpdate(!update);
-              setDeletes("");
-            },
-            100);
+
+          setUpdate(!update);
+          setDeletes("");
         })
         .catch((err) => {
           console.log(err);
@@ -60,13 +56,11 @@ const Todos = ({ todo }) => {
         delayforEach += delay;
         return (
           <div
-            className={`todo ${complete ? "completed" : ""} ${
-              deletes === _id ? "toDelete" : ""
-            }`}
+            className={`todo ${complete ? "completed" : ""} `}
             key={_id}
             style={{
               animationDelay: `${delayforEach}ms`,
-              opacity: `${deletes ? "1" : "0"}`,
+              opacity: 0,
             }}
           >
             <div className={`message `}>{text}</div>

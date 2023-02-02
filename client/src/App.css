@@ -213,21 +213,3 @@ body {
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
-@keyframes exitAnimation {
-  0% {
-    opacity: 1;
-    transform: translateX(0rem);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(3rem);
-  }
-}
-
-.toDelete {
-  opacity: 0;
-  animation: exitAnimation;
-  animation-duration: 1s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-}
