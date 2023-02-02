@@ -59,6 +59,7 @@
   grid-auto-flow: row;
   gap: 1.5rem;
   padding: 0rem 0.5rem;
+  transition: 0.3s cubic-bezier(0.54, 1, 0.77, 1.16);
 }
 .todo {
   display: grid;
@@ -69,6 +70,7 @@
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  transition: 0.3s cubic-bezier(0.54, 1, 0.77, 1.16);
 }
 .message {
   word-wrap: break-word;
@@ -81,18 +83,30 @@
 }
 .red {
   color: red;
-  cursor: pointer;
 }
 .green {
   color: #76b041;
-  cursor: pointer;
 }
 .black {
   color: black;
-  cursor: pointer;
 }
-.strikethrough {
+.black,
+.green,
+.red {
+  cursor: pointer;
+  opacity: 0.4;
+  transition: 0.3s cubic-bezier(0.54, 1, 0.77, 1.16);
+}
+.black:hover,
+.red:hover,
+.green:hover,
+.completed:hover {
+  opacity: 1;
+}
+.completed {
   text-decoration: line-through;
+  opacity: 0.4;
+  transition: 0.3s cubic-bezier(0.54, 1, 0.77, 1.16);
 }
 .addTodo {
   cursor: pointer;
@@ -101,7 +115,7 @@
 .inputDialogactive {
   position: absolute;
   place-self: center;
-  background-color: #a6fbff;
+  background-color: #ffa000;
   border-radius: 0.5rem;
   padding: 0rem 0.5rem;
   display: grid;
@@ -119,9 +133,11 @@
   font-size: 1.15rem;
   background-color: transparent;
   border: none;
+  color: white;
 }
 .inputButton {
   background-color: transparent;
+  color: white;
   border: none;
   display: grid;
   align-items: center;
@@ -146,3 +162,13 @@
     width: 16rem;
   }
 }
+
+/* SCROLLBAR */
+.Screen::-webkit-scrollbar {
+  width: 4px;
+}
+.Screen::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #ffa000, transparent);
+  border-radius: 0.5rem;
+}
+

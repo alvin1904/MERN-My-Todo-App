@@ -49,10 +49,8 @@ const Todos = ({ todo }) => {
     <div className="todos">
       {todos.map(({ _id, text, complete }) => {
         return (
-          <div className="todo" key={_id}>
-            <div className={`message ${complete ? "strikethrough" : ""}`}>
-              {text}
-            </div>
+          <div className={`todo ${complete ? "completed" : ""}`} key={_id}>
+            <div className={`message `}>{text}</div>
             <div className="tickbox">
               <div
                 onClick={() => {
