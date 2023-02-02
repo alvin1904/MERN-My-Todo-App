@@ -7,6 +7,8 @@ import { deleteTodo, completeTodo } from "../api/index";
 const Todos = ({ todo }) => {
   const [todos, setTodos] = useState([]);
   const [update, setUpdate] = useState(false);
+  const [deletes, setDeletes] = useState("");
+  let delayforEach = 0;
 
   useEffect(() => {
     getTodos()
@@ -21,10 +23,16 @@ const Todos = ({ todo }) => {
 
   const handleDelete = (id) => {
     if (id) {
+      setDeletes(id);
       deleteTodo(id)
         .then((res) => {
           // console.log(res);
-          setUpdate(!update);
+          const timeout =
+            (() => {
+              setUpdate(!update);
+              setDeletes("");
+            },
+            100);
         })
         .catch((err) => {
           console.log(err);
@@ -48,8 +56,19 @@ const Todos = ({ todo }) => {
   return (
     <div className="todos">
       {todos.map(({ _id, text, complete }) => {
+        const delay = 1000 / todos.length;
+        delayforEach += delay;
         return (
-          <div className={`todo ${complete ? "completed" : ""}`} key={_id}>
+          <div
+            className={`todo ${complete ? "completed" : ""} ${
+              deletes === _id ? "toDelete" : ""
+            }`}
+            key={_id}
+            style={{
+              animationDelay: `${delayforEach}ms`,
+              opacity: `${deletes ? "1" : "0"}`,
+            }}
+          >
             <div className={`message `}>{text}</div>
             <div className="tickbox">
               <div

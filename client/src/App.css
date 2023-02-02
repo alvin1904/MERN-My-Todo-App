@@ -2,6 +2,10 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+html,
+body {
+  overflow: hidden;
+}
 
 .Screen {
   height: 41rem;
@@ -94,7 +98,7 @@
 .green,
 .red {
   cursor: pointer;
-  opacity: 0.4;
+  opacity: 0.8;
   transition: 0.3s cubic-bezier(0.54, 1, 0.77, 1.16);
 }
 .black:hover,
@@ -105,7 +109,6 @@
 }
 .completed {
   text-decoration: line-through;
-  opacity: 0.4;
   transition: 0.3s cubic-bezier(0.54, 1, 0.77, 1.16);
 }
 .addTodo {
@@ -122,9 +125,20 @@
   grid-auto-flow: column;
   justify-content: space-between;
 }
+@keyframes inputTodoReverse {
+  0% {
+    display: grid;
+    top: 90%;
+  }
+  100% {
+    display: grid;
+    top: 125%;
+  }
+}
 .inputDialog {
+  animation: inputTodoReverse 0.5s ease;
+  display: grid;
   top: 125%;
-  display: none;
 }
 .inputBox {
   height: 2rem;
@@ -143,9 +157,20 @@
   align-items: center;
   cursor: pointer;
 }
+@keyframes inputTodo {
+  0% {
+    display: grid;
+    top: 120%;
+  }
+  100% {
+    display: grid;
+    top: 90%;
+  }
+}
 .inputDialogactive {
   display: grid;
   top: 90%;
+  animation: inputTodo 0.5s ease;
 }
 @media (max-width: 70em) {
   .inputDialogactive {
@@ -172,3 +197,37 @@
   border-radius: 0.5rem;
 }
 
+@keyframes entryAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+.todo {
+  animation: entryAnimation;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+@keyframes exitAnimation {
+  0% {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(3rem);
+  }
+}
+
+.toDelete {
+  opacity: 0;
+  animation: exitAnimation;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
