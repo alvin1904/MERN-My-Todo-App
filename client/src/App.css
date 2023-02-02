@@ -179,9 +179,15 @@ body {
 }
 
 @media (max-width: 50em) {
+  .Website {
+    overflow: hidden;
+  }
   .Screen {
-    width: 19rem;
-    overflow: hide;
+    width: 18rem;
+    height: 38rem;
+    transform: translateY(2rem);
+    overflow: scroll;
+    margin: 4rem 0rem;
   }
   .inputBox {
     width: 16rem;
