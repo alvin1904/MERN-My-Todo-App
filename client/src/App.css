@@ -139,6 +139,7 @@ body {
   animation: inputTodoReverse 0.5s ease;
   display: grid;
   top: 125%;
+  display: none;
 }
 .inputBox {
   height: 2rem;
@@ -185,7 +186,7 @@ body {
   .Screen {
     width: 18rem;
     height: 38rem;
-    transform: translateY(2rem);
+    transform: translateY(-1.75rem);
     overflow: scroll;
     margin: 4rem 0rem;
   }

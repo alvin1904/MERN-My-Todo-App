@@ -7,7 +7,6 @@ import { deleteTodo, completeTodo } from "../api/index";
 const Todos = ({ todo }) => {
   const [todos, setTodos] = useState([]);
   const [update, setUpdate] = useState(false);
-  const [deletes, setDeletes] = useState("");
   let delayforEach = 0;
 
   useEffect(() => {
@@ -26,7 +25,6 @@ const Todos = ({ todo }) => {
       deleteTodo(id)
         .then((res) => {
           // console.log(res);
-
           setUpdate(!update);
           setDeletes("");
         })

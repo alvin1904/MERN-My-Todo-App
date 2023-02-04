@@ -25,6 +25,7 @@ const Todo = () => {
 
   const [todo, setTodo] = useState("");
   const [view, setView] = useState(false);
+  const [inputText, setInputText] = useState("");
 
   useEffect(() => {
     if (todo !== "") {
@@ -70,11 +71,19 @@ const Todo = () => {
         className={`inputDialog${view ? "active" : ""}`}
         onSubmit={(e) => {
           e.preventDefault();
-          setTodo(e.target.inputBox.value);
+          setTodo(inputText);
           setView(false);
         }}
       >
-        <input className="inputBox" name="inputBox" autoComplete="off" defaultValue={""}></input>
+        <input
+          className="inputBox"
+          name="inputBox"
+          autoComplete="off"
+          value={`${inputText}`}
+          onChange={(e) => {
+            setInputText(e.target.value);
+          }}
+        ></input>
         <button type="submit" className="inputButton">
           <AiOutlineSend size={30} />
         </button>
