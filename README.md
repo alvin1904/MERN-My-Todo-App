@@ -4,7 +4,7 @@
 
 # MERN Stack Todo Application
 
-Hello 👋, This is a `MERN Stack Personal TODO Application ☋`. Made using `Node.js, Express.js, MongoDB, React.js, & Plain CSS`. This application has server stored and served todo management system. Users can mark a todo as done or delete it if they want. This web-app is completely mobile and tablet responsive and has various animation effects included.
+Hello 👋, This is a `MERN Stack Personal TODO Application ☋`. Made using `Node.js, Express.js, MongoDB, React.js, & Plain CSS`. Both the server and client side are deployed and hosted by Render. This application has server stored and served todo management system. User can add any number of todos to the list. User can mark a todo done or deleted if he/she wants. This web-app is completely mobile and tablet responsive and has various animation effects included.
 
 <!-- ahead of main parts -->
 
@@ -12,17 +12,23 @@ Hello 👋, This is a `MERN Stack Personal TODO Application ☋`. Made using `No
 
 - `Frontend` - React.js & CSS
 - `Backend` - Node.js, Express.js & MongoDB database
+- `Deployment & Hosting` - Render
 
 <!-- project directory & live preview link -->
 
 ### 🖱️Browse App Live URL
 
+<a href="https://mytodo-ucn0.onrender.com">https://mytodo-ucn0.onrender.com</a>
 
 ### 👉Screenshots
-<!-- ![App ScreenShot](https://raw.githubusercontent.com/SamiurRahmanMukul/Complete-MERN-TODO-Application/master/app_screenshot_v1.png) -->
+
+<img src="/screenshots/ss1.png"></img>
+<img src="/screenshots/ss2.png"></img>
+<img src="/screenshots/ss3.png"></img>
+<img src="/screenshots/ss4.jpg" width="400px"></img> <img src="/screenshots/ss5.jpg" width="400px"></img>
 
 <!-- live api documentation -->
-<!-- 
+<!--
 ### 👉 Live API Routes Documentations
 
 ```sh
