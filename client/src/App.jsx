@@ -1,5 +1,4 @@
 import "./App.css";
-import Home from "./components/Home";
 import Todo from "./components/Todo";
 import * as React from "react";
 import {
@@ -15,9 +14,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Navigate to={"/home"} />} />
-        <Route path="/home" element={<Home />} />
         <Route
-          path="/todopage"
+          path="/home"
           element={
             <AppProvider>
               <Todo />
