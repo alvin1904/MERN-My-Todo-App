@@ -3,25 +3,35 @@ import { useState } from "react";
 import { BsCircle, BsCheck2Circle, BsTrash } from "react-icons/bs";
 import { getTodos } from "../api/index";
 import { deleteTodo, completeTodo } from "../api/index";
+import { useErrorContext } from "./context";
 
 const Todos = ({ todo }) => {
   const [todos, setTodos] = useState([]);
   const [update, setUpdate] = useState(false);
   let delayforEach = 0;
 
+  const { hideLoading, showLoading, showError } = useErrorContext();
+
   useEffect(() => {
+    showLoading();
+    if (todos.length !== 0) hideLoading();
+  }, []);
+  useEffect(() => {
+    showLoading();
     getTodos()
       .then((res) => {
         setTodos(res.data);
+        if (todos != res.data) hideLoading();
       })
       .catch((err) => {
-        alert(err);
-        console.log(err);
+        showError(err);
       });
+    showLoading();
   }, [todo, update]);
 
   const handleDelete = (id) => {
     if (id) {
+      showLoading();
       deleteTodo(id)
         .then((res) => {
           // console.log(res);
@@ -29,20 +39,21 @@ const Todos = ({ todo }) => {
           setDeletes("");
         })
         .catch((err) => {
-          console.log(err);
+          showError(err);
         });
     }
   };
 
   const handleToggleCompletion = (id) => {
     if (id) {
+      showLoading();
       completeTodo(id)
         .then((res) => {
           // console.log(res);
           setUpdate(!update);
         })
         .catch((err) => {
-          console.log(err);
+          showError(err);
         });
     }
   };

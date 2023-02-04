@@ -8,6 +8,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import { AppProvider } from "./components/context";
 
 function App() {
   return (
@@ -15,7 +16,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to={"/home"} />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/todopage" element={<Todo />} />
+        <Route
+          path="/todopage"
+          element={
+            <AppProvider>
+              <Todo />
+            </AppProvider>
+          }
+        />
         {/* 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/register" element={<SignUp />} /> */}

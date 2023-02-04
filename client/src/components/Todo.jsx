@@ -3,6 +3,9 @@ import { weekdays, months } from "./data";
 import { AiOutlineAppstoreAdd, AiOutlineSend } from "react-icons/ai";
 import Todos from "./Todos";
 import { addTodo } from "../api";
+import ErrorHandler from "./ErrorHandler";
+import LoadingHandler from "./LoadingHandler";
+import { useErrorContext } from "./context";
 
 const Todo = () => {
   const [date, setDate] = useState({
@@ -11,6 +14,9 @@ const Todo = () => {
     year: "0000",
     weekday: "Someday",
   });
+
+  const { loading, showLoading, error, showError } =
+    useErrorContext();
 
   useEffect(() => {
     const date = new Date();
@@ -28,6 +34,7 @@ const Todo = () => {
   const [inputText, setInputText] = useState("");
 
   useEffect(() => {
+    showLoading();
     if (todo !== "") {
       const data = {
         text: todo,
@@ -38,7 +45,7 @@ const Todo = () => {
           setTodo("");
         })
         .catch((err) => {
-          console.log(err);
+          showError(err);
         });
     } else {
     }
@@ -46,6 +53,8 @@ const Todo = () => {
 
   return (
     <div className="Website">
+      {error && <ErrorHandler error={error} />}
+      {loading && <LoadingHandler />}
       <div className="Screen">
         <header className="header">
           <div className="dates">
@@ -72,6 +81,7 @@ const Todo = () => {
         onSubmit={(e) => {
           e.preventDefault();
           setTodo(inputText);
+          setInputText("");
           setView(false);
         }}
       >
@@ -79,6 +89,7 @@ const Todo = () => {
           className="inputBox"
           name="inputBox"
           autoComplete="off"
+          placeholder="Enter a new task"
           value={`${inputText}`}
           onChange={(e) => {
             setInputText(e.target.value);
