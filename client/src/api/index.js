@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "http://localhost:3000/",
-  baseURL: "http://192.168.0.123:3000/",
+  // baseURL: "http://192.168.0.123:3000/",
   // baseURL: "https://myTodo1904-api.onrender.com/",
   headers: {
     Accept: "application/json",
