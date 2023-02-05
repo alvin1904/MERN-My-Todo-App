@@ -13,9 +13,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to={"/home"} />} />
         <Route
-          path="/home"
+          path="/"
           element={
             <AppProvider>
               <Todo />
