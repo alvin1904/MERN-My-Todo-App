@@ -17,10 +17,11 @@ connectDB();
 const cors = require("cors");
 const helmet = require("helmet");
 const whitelist = [
-  "http://192.168.0.123:5173",
-  "http://192.168.0.123:5173/",
-  "http://localhost:5173",
-  "http://localhost:5173/",
+  `${process.env.WHITELIST_URL}`,
+  // "http://192.168.0.123:5173",
+  // "http://192.168.0.123:5173/",
+  // "http://localhost:5173",
+  // "http://localhost:5173/",
   // "https://mytodo-ucn0.onrender.com",
   // "https://mytodo-ucn0.onrender.com/"
 ];
