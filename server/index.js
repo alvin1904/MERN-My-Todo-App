@@ -60,7 +60,7 @@ app.get("/status", (req, res) => {
 const Todo = require("./models/Todo");
 
 app.get("/todos", async (req, res) => {
-  const todos = await Todo.find();
+  const todos = await Todo.find().sort({ timestamp: -1 });
   res.status(200).json(todos);
 });
 
